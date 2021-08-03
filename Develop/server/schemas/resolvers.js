@@ -12,14 +12,14 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { name }) => {
-      return User.create({ name });
+    addUser: async (parent, { username }) => {
+      return User.create({ username });
     },
-    addBook: async (parent, { userId, skill }) => {
+    addBook: async (parent, { userId, book }) => {
       return user.findOneAndUpdate(
         { _id: userId },
         {
-          $addToSet: { skills: skill },
+          $addToSet: { books: book },
         },
         {
           new: true,
@@ -30,10 +30,10 @@ const resolvers = {
     removeUser: async (parent, { userId }) => {
       return User.findOneAndDelete({ _id: userId });
     },
-    removeSkill: async (parent, { userId, skill }) => {
+    removebook: async (parent, { userId, book }) => {
       return User.findOneAndUpdate(
         { _id: userId },
-        { $pull: { skills: skill } },
+        { $pull: { books: book } },
         { new: true }
       );
     },
