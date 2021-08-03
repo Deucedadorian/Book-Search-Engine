@@ -1,23 +1,23 @@
-const { Profile } = require('../models');
+const { User } = require('../models');
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
+    users: async () => {
+      return User.find();
     },
 
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
   },
 
   Mutation: {
-    addProfile: async (parent, { name }) => {
-      return Profile.create({ name });
+    addUser: async (parent, { name }) => {
+      return User.create({ name });
     },
-    addSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
+    addBook: async (parent, { userId, skill }) => {
+      return user.findOneAndUpdate(
+        { _id: userId },
         {
           $addToSet: { skills: skill },
         },
@@ -27,12 +27,12 @@ const resolvers = {
         }
       );
     },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
+    removeUser: async (parent, { userId }) => {
+      return User.findOneAndDelete({ _id: userId });
     },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
+    removeSkill: async (parent, { userId, skill }) => {
+      return User.findOneAndUpdate(
+        { _id: userId },
         { $pull: { skills: skill } },
         { new: true }
       );
