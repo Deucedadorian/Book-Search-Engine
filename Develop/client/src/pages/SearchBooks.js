@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_BOOK } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-import { saveBook, searchGoogleBooks } from '../utils/API';
+import { searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 
 const SearchBooks = () => {
@@ -59,6 +59,8 @@ const SearchBooks = () => {
     // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
+    const [addBook, { error, bookId }] = useMutation(ADD_BOOK);
+
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -67,7 +69,7 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await useMutation(ADD_BOOK);
+      const response = await addBook(bookToSave);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
