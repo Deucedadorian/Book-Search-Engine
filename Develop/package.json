@@ -17,6 +17,10 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "graphql": "^15.5.1"
+    "graphql": "^15.5.1",
+    "react-hook": "0.0.1",
+    "@apollo/client": "^3.4.4",
+    "apollo-server-express": "^2.25.2",
+    "if-env": "^1.0.4"
   }
 }
