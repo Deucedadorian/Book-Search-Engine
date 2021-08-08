@@ -35,7 +35,6 @@ const LoginForm = () => {
     } catch (err) {
       console.error(err);
       setShowAlert(true);
-      console.log('here!')
     }
 
     setUserFormData({

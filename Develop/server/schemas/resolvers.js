@@ -4,10 +4,13 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
-    me: async ( context) => {
+    users: async () => {
+      return User.find();
+    },
+
+    me: async (parent, args, context) => {
       if(context.user) {
-          const userData = await User.findOne({ _id: context.user._id })
-              .select('-__v -password')
+          const userData = await User.findOne({ _id: context.user._id });
       return userData;
       }
 
@@ -16,8 +19,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+    addUser: async (parent, { name, email, password }) => {
+      const user = await User.create({ name, email, password });
       const token = signToken(user);
 
       return { token, user };
@@ -27,22 +30,23 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-          throw new AuthenticationError('Incorrect Credentials'); 
+          throw new AuthenticationError('No profile with this email found!'); 
       }
 
       const correctPassword = await user.isCorrectPassword(password);
 
       if (!correctPassword) {
-          throw new AuthenticationError('Incorrect Credentials');
+          throw new AuthenticationError('Incorrect password!');
       }
 
       const token = signToken(user);
       return { token, user };
     },
 
-    addBook: async (parent, { input }, context) => {
+    addBook: async (parent, {input}, context) => {
+      console.log(input);
       if(context.user) {
-        const updatedUser = await user.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { savedBooks: input } },
           { new: true }
