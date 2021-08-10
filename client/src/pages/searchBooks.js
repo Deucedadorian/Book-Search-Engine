@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_BOOK } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { searchGoogleBooks } from '../utils/api';
-import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { saveBookIds, getSavedBookIds } from '../utils/localstorage';
 
 const SearchBooks = () => {
   const [addBook, { error }] = useMutation(ADD_BOOK);
