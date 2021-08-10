@@ -8,9 +8,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-import Navbar from './components/Navbar';
+import SearchBooks from './pages/searchBooks';
+import SavedBooks from './pages/savedBooks';
+import Navbar from './components/navbar';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
