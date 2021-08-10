@@ -1,7 +1,42 @@
 # Book-Search-Engine
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Description
+
+A fully functioning Google Books API search engine using a GaraphQL API built with Apollo Server.
+
+## Link to Deployed App
+
+## Screenshot 
+
+![Screenshot of the application](./assets/localhost_3000_.png)
 ## Resources
 
-Thanks to Alan [(abalcs)](https://github.com/abalcs) for letting me reference his code to use hooks correctly. 
+Thanks to Alan [(abalcs)](https://github.com/abalcs) for helping trouble shoot a heroku deployment problem and for letting me reference his code. 
 
 https://github.com/abalcs/Book-Search-Engine/blob/main/client/src/pages/SavedBooks.js
+
+## License
+
+MIT License
+
+Copyright (c) 2021 Dylan Cole
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
